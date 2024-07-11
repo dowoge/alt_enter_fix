@@ -1,4 +1,5 @@
-use std::env;
+use std::io::Read;
+use std::{env, io};
 use std::path::Path;
 use std::fs;
 fn main() {
@@ -35,7 +36,7 @@ fn main() {
                 }
                 let cas_json = format!("{}\\ClientAppSettings.json",cs_folder);
                 if !Path::new(&cas_json).is_file() {
-                    fs::write(cas_json, "{\"FFlagHandleAltEnterFullscreenManually\":\"False\",\"DFIntTaskSchedulerTargetFps\":5588562}").ok();
+                    fs::write(cas_json, "{\"FFlagHandleAltEnterFullscreenManually\":\"False\",\"DFIntTaskSchedulerTargetFps\":5588562,\"FFlagEnableInGameMenuChromeABTest3\":\"False\"}").ok();
                     println!("Wrote ClientAppSettings.json to {}",cur_folder)
                 } else {
                     println!("ClientAppSettings.json already exists in {}",cur_folder)
@@ -43,4 +44,6 @@ fn main() {
             }
         }
     }
+    println!("Press enter to exit");
+    let _ = io::stdin().read(&mut [0u8]).unwrap();
 }
