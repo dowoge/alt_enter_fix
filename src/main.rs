@@ -36,7 +36,7 @@ fn main() {
                 }
                 let cas_json = format!("{}\\ClientAppSettings.json",cs_folder);
                 if !Path::new(&cas_json).is_file() {
-                    fs::write(cas_json, "{\"FFlagHandleAltEnterFullscreenManually\":\"False\",\"DFIntTaskSchedulerTargetFps\":5588562,\"FFlagEnableInGameMenuChromeABTest3\":\"False\"}").ok();
+                    fs::write(cas_json, "{\"FFlagHandleAltEnterFullscreenManually\":\"False\",\"DFIntTaskSchedulerTargetFps\":5588562,\"FFlagEnableInGameMenuChromeABTest3\":\"False\",\"FFlagGameBasicSettingsFramerateCap5\":\"False\",\"FFlagTaskSchedulerLimitTargetFpsTo2402\":\"False\"}").ok();
                     println!("Wrote ClientAppSettings.json to {}",cur_folder)
                 } else {
                     println!("ClientAppSettings.json already exists in {}",cur_folder)
